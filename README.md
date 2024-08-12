@@ -1,1 +1,1 @@
-#**GS STORE**
+# **GS STORE**

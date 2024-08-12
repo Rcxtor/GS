@@ -5,13 +5,15 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReleaseController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\OnSaleController;
+use App\Http\Controllers\BrowseController;
 use App\Http\Controllers\SearchedController;
 
 use Illuminate\Support\Facades\Route;
 
 // Browse
-Route::get('browse',function(){
-    return view('browse');})->name('browse');
+Route::get('/browse', [BrowseController::class, 'show'])->name('browse');
+Route::get('/browse', [BrowseController::class, 'filter'])->name('browse');
+
 
 // Cart
 Route::get('cart',function(){

@@ -1,7 +1,8 @@
 main
 {
     border: none;
-    min-height: 45vw;
+    min-height: 55vw;
+    position: relative;
 }
 .slide_main 
 {
@@ -503,4 +504,84 @@ main
 .new_release .filter button:active, .on_sale .filter button:active
 {
     transform: scale(0.95);
+}
+
+.on_sale .types,.new_release .types
+{
+    display: flex;
+    margin-top: -1.8vw;
+    margin-left: 2vw;
+
+}
+.on_sale h6,.new_release h6
+{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 100;
+    margin-left: 1vw;
+    font-size: 1.4vw;
+    margin-top: -1vw;
+    color: rgb(127,127,127);
+}
+.on_sale h7,.new_release h7
+{
+    font-size: 1.2vw;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 100;
+    color: rgb(127,127,127);
+}
+.new_release .filter h1 a, .on_sale .filter h1 a
+{
+    border: none;
+    background-color: transparent;
+    color:rgb(127,127,127);
+    /* border: 2px solid white; */
+    position: absolute;
+    right:0px;
+    font-size: 1vw;
+    cursor: pointer;
+}
+
+.new_release .filter h1 a:hover, .on_sale .filter h1 a:hover
+{
+    filter: brightness(0.6);
+}
+
+.pingupingu
+{
+    position: absolute;
+    bottom: 0;
+}
+
+.pagination {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 0.6vw;
+}
+
+.pagination li {
+    display: inline;
+}
+
+.pagination li a, .pagination li span {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 100;
+    font-size: 0.8vw;
+    padding: 0.25vw 0.45vw; 
+    transition: color 0.3s;
+}
+
+.pagination li a:hover {
+    color: rgb(158, 158, 158);
+}
+
+.pagination li.active span {
+    background-color: rgb(127,127,127);
+    color: white; 
+    padding: 5px 10px;
+    border-radius: 4px; 
+    font-weight: bold; 
 }

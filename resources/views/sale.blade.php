@@ -6,21 +6,26 @@
     @section('title', 'On Sale | GS')
     <div class="on_sale">
         <h5>On Sale></h5>
+
+        @if(!empty($selectedFilters['price']) || !empty($selectedFilters['genre']) || !empty($selectedFilters['platform'])) 
+            <h6>Filtered by:</h6>
+            <div class="types">
+                @if(!empty($selectedFilters['price']))
+                    <h7>Price: ${{ implode(', ', $selectedFilters['price']) }}</h7>
+                @endif
+                @if(!empty($selectedFilters['genre']))
+                    <!-- <li>Genre: {{ implode(', ', $selectedFilters['genre']) }}</li> -->
+                    <h7>Genre: {{ implode(', ', $selectedFilters['genre']) }}</h7>
+                @endif
+                @if(!empty($selectedFilters['platform']))
+                    <h7>Platform: {{ implode(', ', $selectedFilters['platform']) }}</h7>
+                @endif
+            </div>
+        @endif
         @if($games->isEmpty())
             <p style="color:white; font-size:3vw;">No games found.</p>
         @endif
-        <h5>Filtered by:</h5>
-        <ul>
-            @if(!empty($selectedFilters['price']))
-                <li>Price: {{ implode(', ', $selectedFilters['price']) }}</li>
-            @endif
-            @if(!empty($selectedFilters['genre']))
-                <li>Genre: {{ implode(', ', $selectedFilters['genre']) }}</li>
-            @endif
-            @if(!empty($selectedFilters['platform']))
-                <li>Platform: {{ implode(', ', $selectedFilters['platform']) }}</li>
-            @endif
-        </ul>
+
         <div class="container">
             @foreach($games->where('on_sale', 1) as $game)
                 <div class="opt">
@@ -41,7 +46,7 @@
         </div>
         <form method="GET" action="{{ route('sale') }}">
             <div class="filter">
-                <h1>Filter</h1>
+                <h1>Filter<a href="{{route('sale')}}">&#10227;</a></h1>
                 <h2>Price<button type="button" onclick="toggleDisplay('price')">&#8615;</button></h2>
                 <div class="price" style="display:flex; flex-direction: column; gap:0.5vw; display:none;">
                     <label>
@@ -83,6 +88,9 @@
             
         </form>
     </div>
+<div class="pingupingu ">
+{{ $games->links('vendor.pagination.default') }}
+</div>
 <script>
 function toggleDisplay(className) 
 {

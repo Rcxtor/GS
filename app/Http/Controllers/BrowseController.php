@@ -4,17 +4,18 @@ namespace App\Http\Controllers;
 use App\Models\Game;
 use Illuminate\Http\Request;
 
-class ReleaseController extends Controller
+class BrowseController extends Controller
 {
     public function show()
     {
-        $games = Game::paginate(10);
-        return view('release', compact('games'));
+        // $games = Game::all();
+        $games = Game::paginate(10); 
+        return view('browse', compact('games'));
     }
 
     public function filter(Request $request)
     {
-        $query = Game::where('featured', 1);
+        $query = Game::query();
 
         // Selected filters
         $selectedFilters = 
@@ -25,6 +26,17 @@ class ReleaseController extends Controller
         ];
 
         // Filter by Price
+        // if ($request->has('price')) 
+        // {
+        //     $prices = $request->input('price');
+        //     $query->where(function ($query) use ($prices) {
+        //         foreach ($prices as $price) {
+        //             list($min, $max) = explode('-', $price);
+        //             $query->orWhereBetween('price', [(float)$min, (float)$max]);
+        //         }
+        //     });
+        //     $selectedFilters['price'] = $prices;
+        // }
         if ($request->has('price')) 
         {
             $prices = $request->input('price');
@@ -61,8 +73,9 @@ class ReleaseController extends Controller
             $selectedFilters['platform'] = $platforms;
         }
 
+        // $games = $query->get();
         $games = $query->paginate(10);
 
-        return view('release', compact('games','selectedFilters'));
+        return view('browse', compact('games','selectedFilters'));
     }
 }

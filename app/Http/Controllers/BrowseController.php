@@ -78,4 +78,18 @@ class BrowseController extends Controller
 
         return view('browse', compact('games','selectedFilters'));
     }
+
+    public function filterByGenre($genre)
+    {
+        $query = Game::query();
+
+        // Selected filters
+        $selectedFilters = 
+        [
+            'genre' => [$genre],
+        ];
+
+        $games = Game::where('genre', $genre)->paginate(10);
+        return view('browse', compact('games','selectedFilters'));
+    }
 }

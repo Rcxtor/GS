@@ -43,17 +43,17 @@
                             </x-nav-link>
                         
                                 <div class="browse_cont">
-                                    <a href="">Adventure</a>
-                                    <a href="">Racing</a>
-                                    <a href="">Fantasy</a>
-                                    <a href="">Action</a>
-                                    <a href="">Fighting</a>
-                                    <a href="">Card Game</a>
-                                    <a href="">Explore</a>
-                                    <a href="">Indie</a>
-                                    <a href="">Horror</a>
-                                    <a href="">MOBA</a>
-                                    <a href="{{'browse'}}">....</a>
+                                    <a href="{{ route('genre.filter', 'adventure') }}">Adventure</a>
+                                    <a href="{{ route('genre.filter', 'racing') }}">Racing</a>
+                                    <a href="{{ route('genre.filter', 'sci-fi') }}">Sci-Fi</a>
+                                    <a href="{{ route('genre.filter', 'action') }}">Action</a>
+                                    <a href="{{ route('genre.filter', 'strategy') }}">Strategy</a>
+                                    <a href="{{ route('genre.filter', 'simulation') }}">Simulation</a>
+                                    <a href="{{ route('genre.filter', 'survival') }}">Survival</a>
+                                    <a href="{{ route('genre.filter', 'indie') }}">Indie</a>
+                                    <a href="{{ route('genre.filter', 'horror') }}">Horror</a>
+                                    <a href="{{ route('genre.filter', 'rpg') }}">RPG</a>
+                                    <a href="{{route('browse')}}">....</a>
                                 </div>
                         </div>
                     </div>

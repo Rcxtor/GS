@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 // Browse
 Route::get('/browse', [BrowseController::class, 'show'])->name('browse');
 Route::get('/browse', [BrowseController::class, 'filter'])->name('browse');
+Route::get('/genre/{genre}', [BrowseController::class, 'filterByGenre'])->name('genre.filter');
 
 
 // Cart

@@ -1,11 +1,46 @@
 <x-app-layout>
     @push('styles')
     <link rel="stylesheet" href="{{ asset('css/welcome.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('css/release.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/browse.css') }}"/>
     @endpush
-    @section('title', 'Browse | GS')
+    @section('title', 'Browse: '.ucfirst(implode(', ', $selectedFilters['genre'])).' | GS')
+    <div class="popular">
+        <h1>Popular Genre</h1>
+        <div class="outer-layer">
+            <a href="{{ route('genre.filter', 'adventure') }}">
+                <div class="inner-layer">
+                    <div class="img"></div>
+                    <h2>Adventure</h2>
+                </div>
+            </a>
+            <a href="{{ route('genre.filter', 'sci-fi') }}">            
+                <div class="inner-layer">
+                    <div class="img"></div>
+                    <h2>Sci-Fi</h2>
+                </div>
+            </a> 
+            <a href="{{ route('genre.filter', 'action') }}">
+                <div class="inner-layer">
+                    <div class="img"></div>
+                    <h2>Action</h2>
+                </div>
+            </a>
+            <a href="{{ route('genre.filter', 'strategy') }}">
+                <div class="inner-layer">
+                    <div class="img"></div>
+                    <h2>Strategy</h2>
+                </div>
+            </a>
+            <a href="{{ route('genre.filter', 'indie') }}">
+                <div class="inner-layer">
+                    <div class="img"></div>
+                    <h2>Indie</h2>
+                </div>
+            </a>
+        </div>
+    </div>
     <div class="new_release">
-        <h5>Browse></h5>
+        <h5>Browse</h5>
 
         @if(!empty($selectedFilters['price']) || !empty($selectedFilters['genre']) || !empty($selectedFilters['platform'])) 
             <h6>Filtered by:</h6>
@@ -14,11 +49,10 @@
                     <h7>Price: ${{ implode(', ', $selectedFilters['price']) }}</h7>
                 @endif
                 @if(!empty($selectedFilters['genre']))
-                    <!-- <li>Genre: {{ implode(', ', $selectedFilters['genre']) }}</li> -->
-                    <h7>Genre: {{ implode(', ', $selectedFilters['genre']) }}</h7>
+                    <h7>Genre: {{ ucfirst(implode(', ', $selectedFilters['genre'])) }}</h7>
                 @endif
                 @if(!empty($selectedFilters['platform']))
-                    <h7>Platform: {{ implode(', ', $selectedFilters['platform']) }}</h7>
+                    <h7>Platform: {{ ucfirst(implode(', ', $selectedFilters['platform'])) }}</h7>
                 @endif
             </div>
         @endif
@@ -72,13 +106,14 @@
                 <div class="genre" style="display:flex; flex-direction: column; gap:0.5vw;display:none;">
                     <label><input type="checkbox" name="genre[]" value="adventure">Adventure</label>
                     <label><input type="checkbox" name="genre[]" value="racing">Racing</label>
+                    <label><input type="checkbox" name="genre[]" value="sci-fi">Sci-Fi</label>
                     <label><input type="checkbox" name="genre[]" value="action">Action</label>
-                    <label><input type="checkbox" name="genre[]" value="fantasy">Fantasy</label>
-                    <label><input type="checkbox" name="genre[]" value="card">Card Game</label>
-                    <label><input type="checkbox" name="genre[]" value="explore">Explore</label>
+                    <label><input type="checkbox" name="genre[]" value="strategy">Strategy</label>
+                    <label><input type="checkbox" name="genre[]" value="simulation">Simulation</label>
+                    <label><input type="checkbox" name="genre[]" value="survival">Survival</label>
                     <label><input type="checkbox" name="genre[]" value="indie">Indie</label>
                     <label><input type="checkbox" name="genre[]" value="horror">Horror</label>
-                    <label><input type="checkbox" name="genre[]" value="moba">MOBA</label>
+                    <label><input type="checkbox" name="genre[]" value="rpg">RPG</label>
                 </div>
                 
                 <h2>Platform<button type="button" onclick="toggleDisplay('platform')">&#8615;</button></h2>

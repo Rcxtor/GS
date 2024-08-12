@@ -72,13 +72,14 @@
                 <div class="genre" style="display:flex; flex-direction: column; gap:0.5vw;display:none;">
                     <label><input type="checkbox" name="genre[]" value="adventure">Adventure</label>
                     <label><input type="checkbox" name="genre[]" value="racing">Racing</label>
+                    <label><input type="checkbox" name="genre[]" value="sci-fi">Sci-Fi</label>
                     <label><input type="checkbox" name="genre[]" value="action">Action</label>
-                    <label><input type="checkbox" name="genre[]" value="fantasy">Fantasy</label>
-                    <label><input type="checkbox" name="genre[]" value="card">Card Game</label>
-                    <label><input type="checkbox" name="genre[]" value="explore">Explore</label>
+                    <label><input type="checkbox" name="genre[]" value="strategy">Strategy</label>
+                    <label><input type="checkbox" name="genre[]" value="simulation">Simulation</label>
+                    <label><input type="checkbox" name="genre[]" value="survival">Survival</label>
                     <label><input type="checkbox" name="genre[]" value="indie">Indie</label>
                     <label><input type="checkbox" name="genre[]" value="horror">Horror</label>
-                    <label><input type="checkbox" name="genre[]" value="moba">MOBA</label>
+                    <label><input type="checkbox" name="genre[]" value="rpg">RPG</label>
                 </div>
                 
                 <h2>Platform<button type="button" onclick="toggleDisplay('platform')">&#8615;</button></h2>

@@ -1,0 +1,506 @@
+main
+{
+    border: none;
+    min-height: 45vw;
+}
+.slide_main 
+{
+    /* border: 2px solid  rgb(255, 255, 255); */
+    /* height: 510px;
+    width: 1010px; */
+    height: 26.5vw;
+    width: 52.5vw;
+    margin-top: 56px;
+    margin-bottom: 24px;
+    position: relative;
+}
+.slide_main img
+{
+    /* height: 510px;
+    width: 1010px; */
+    height: 26.5vw;
+    width: 52.5vw;
+    border-radius: 20px;
+    /*  */
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+.slide_main img.fade-out {
+    opacity: 0; /* Fade out the current image */
+}
+.slide_main .wishbtn
+{
+    position: absolute;
+    /* top: 35px; */
+    top:2vw;
+    /* right: 50px; */
+    right: 2.5vw;
+    background-color: #ffffff;
+    border-radius: 50%;
+    height: 1.5vw;
+    width: 1.5vw;
+    border: 1px solid rgb(127,127,127);
+
+}
+.slide_main .wishbtn:hover
+{
+    background-color:rgb(127,127,127);
+    border: 1px solid rgb(27, 27, 27);
+    cursor: pointer;
+}
+.slide_main .readbtn
+{
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 15px;
+    height: 2.6vw;
+    width: 6vw;
+    border: 1px solid rgb(127,127,127);
+    font-weight: 800;
+    color: rgb(57,57,57);
+    font-size: 0.7vw;
+    /* bottom: 35px; */
+    bottom:1.9vw;
+    /* left: 56px; */
+    left:3vw;
+}
+.slide_main .readbtn:hover
+{
+    background-color:rgb(127,127,127);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(27, 27, 27);
+    cursor: pointer;
+
+}
+.slide_main .slide-title
+{
+    color: white;
+    font-weight: 100;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 3vw;
+    position: absolute;
+    text-shadow: 2px 2px 1vw rgb(0, 0, 0);
+    top:1.5vw;
+    left: 2vw;
+}
+.slide_main .slide-price
+{
+    color: white;
+    font-weight: 100;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.5vw;
+    position: absolute;
+    text-shadow: 2px 2px 0.5vw rgb(27,27,27);
+    bottom: 2.2vw;
+    left: 10vw;
+
+}
+.slide_opt 
+{
+    /* border: 2px solid  rgb(255, 255, 255); */
+    /* height: 90px;
+    width: 1200px; */
+    height: 4.7vw;
+    width: 64vw;
+    display: flex;
+    gap: 1.5vw;
+    margin-bottom: 52px;
+}
+.slide_opt .opt
+{
+    /* height: 88px;
+    width: 180px; */
+    height: 4.5vw;
+    width: 9.2vw; 
+    border: 1px solid rgb(67,67,67);
+    border-radius: 9px;
+    /* background-color: rgb(27,27,27); */
+}
+.slide_opt .opt img
+{
+    height: 4.5vw;
+    width: 9.2vw; 
+    border-radius: 10px;
+    object-fit: cover;
+    transition: filter 0.5s ease-in-out, transform 0.5s ease-in-out, border  0.5s ease-in-out;
+}
+.slide_opt .opt img.active {
+    filter: brightness(0.6); /* Darken the active image */
+    transform: scale(1.2);
+    border: 2px solid white;
+}
+.slide_opt .opt img:hover
+{
+    filter: brightness(0.5)
+}
+.slide_opt .opt img:hover
+{
+    cursor: pointer;
+}
+.new_release 
+{   
+    /* height: 432px; */
+    /* width: 1320px; */
+    height: 22.5vw;
+    width: 69vw;
+    display: flex;
+    flex-direction: column;
+    /* gap:40px; */
+    gap: 2vw;
+    /* border: 2px solid white; */
+}
+.new_release a
+{
+    color:white;
+    font-weight: 400;
+    /* font-size: 20px; */
+    font-size: 1.1vw;
+    text-decoration: none;
+}
+.new_release .container
+{
+    display: flex;
+    gap: 2vw;
+    /* border: 2px solid white; */
+
+}
+.new_release .container .opt
+{
+    /* height: 360px; */
+    /* width: 230px; */
+    /* width: 12vw; */
+    height: 18.8vw;
+    position: relative;
+    /* border: 2px solid white; */
+}
+.new_release .container .opt button
+{
+    position: absolute;
+    top: 1vw;
+    right: 1vw;
+    height: 1.4vw;
+    width: 1.4vw;;
+    border-radius: 50%;
+    background-color: rgb(220, 220,220);
+    border: 1px solid rgb(127,127,127);
+}
+.new_release .container .opt button:hover
+{
+    background-color:rgb(127,127,127);
+    border: 1px solid rgb(27, 27, 27);
+    cursor: pointer;
+}
+.new_release .container .opt .img
+{
+    height: 15.6vw;
+    /* border: 2px solid white; */
+    background-color: rgb(27, 27, 27);
+    border-radius: 5px;
+    transition: transform 0.5s ease-in-out;
+}
+.new_release .container .opt .img:hover
+{
+    filter: brightness(0.5);
+    cursor: pointer;
+    transform: scale(1.05);
+    border: 2px solid white;
+
+}
+.new_release .container .opt h1
+{
+    color:white;
+    font-weight: 400;
+    margin-top: 6px;
+    margin-left: 10px;
+    font-size: .9vw;
+}
+.new_release .container .opt h2
+{
+    color:rgb(175, 175, 175);
+    /* font-size: 15px; */
+    font-size: .8vw;
+    font-weight: 400;
+    margin-top: 4px;
+    margin-left: 15px;
+}
+.on_sale 
+{   
+    /* height: 432px; */
+    /* width: 1320px; */
+    margin-top: 2.5vw;
+    height: 22.5vw;
+    width: 69vw;
+    display: flex;
+    flex-direction: column;
+    /* gap:40px; */
+    gap: 2vw;
+    /* border: 2px solid white; */
+}
+.on_sale a
+{
+    color:white;
+    font-weight: 400;
+    /* font-size: 20px; */
+    font-size: 1.1vw;
+    text-decoration: none;
+}
+.on_sale .container
+{
+    display: flex;
+    gap: 2vw;
+    /* border: 2px solid white; */
+
+}
+.on_sale .container .opt
+{
+    /* height: 360px; */
+    /* width: 230px; */
+    height: 18.8vw;
+    position: relative;
+    /* border: 2px solid white; */
+}
+.on_sale .container .opt button
+{
+    position: absolute;
+    top: 1vw;
+    right: 1vw;
+    height: 1.4vw;
+    width: 1.4vw;;
+    border-radius: 50%;
+    background-color: rgb(220, 220,220);
+    border: 1px solid rgb(127,127,127);
+}
+.on_sale .container .opt button:hover
+{
+    background-color:rgb(127,127,127);
+    border: 1px solid rgb(27, 27, 27);
+    cursor: pointer;
+}
+.on_sale .container .opt .img
+{
+    height: 15.6vw;
+    /* border: 2px solid white; */
+    background-color: rgb(27, 27, 27);
+    border-radius: 5px;
+    transition: transform 0.5s ease-in-out;
+}
+.on_sale .container .opt .img:hover
+{
+    filter: brightness(0.5);
+    cursor: pointer;
+    transform: scale(1.05);
+    border: 2px solid white;
+
+}
+
+.on_sale .container .opt h1
+{
+    color:white;
+    font-weight: 400;
+    margin-top: 6px;
+    margin-left: 10px;
+    font-size: .9vw;
+}
+.on_sale .container .opt h2
+{
+    color:rgb(175, 175, 175);
+    /* font-size: 15px; */
+    font-size: .8vw;
+    font-weight: 400;
+    margin-top: 4px;
+    margin-left: 15px;
+    text-decoration: line-through;
+    text-decoration-color: rgb(255, 255, 255);
+    text-decoration-thickness: .2vw;
+}
+.on_sale .container .opt h3
+{
+    color:rgb(175, 175, 175);
+    font-size: .8vw;
+    font-weight: 400;
+    margin-top: 4px;
+}
+.on_sale .container .opt h4
+{
+    position: absolute;
+    background-color: white;
+    font-size: .8vw;
+    font-weight: 400;
+    top: 1vw;
+    left: 1vw;
+    height: 1.4vw;
+    width: 2.4vw;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    border-radius: 0.5vw;
+    border: 1px solid rgb(100,100,100);
+    cursor: default;
+}
+.new_release .container .opt h4/*  NEW ADDED */
+{
+    position: absolute;
+    background-color: white;
+    font-size: .8vw;
+    font-weight: 400;
+    top: 1vw;
+    left: 1vw;
+    height: 1.4vw;
+    width: 2.4vw;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    border-radius: 0.5vw;
+    border: 1px solid rgb(100,100,100);
+    cursor: default;
+}
+.last 
+{
+    /* border: 1px solid #ccc; */
+    display: flex;
+    gap: 460px;
+    gap: 24vw;
+    color: white;
+    /* height: 920px;
+    width: 855px; */
+    height: 48vw;
+    width: 44.6vw;
+}
+.top,.coming
+{   
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    /* border: 1px solid #ccc; */
+    width: 10.1vw;
+    margin-top: 1.5vw;
+}
+.top h1,.coming h1
+{
+    font-weight: 400;
+    font-size: 0.8vw;
+    margin-bottom:-1.2vw;
+    font-size:0.9vw;
+}
+.top .opt,.coming .opt
+{
+    height: 6.6vw;
+    /* border: 1px solid white; */
+    /* gap:2vw; */
+    /* display: flex;
+    flex-direction: row; */
+    position: relative;
+}
+.top .opt .img,.coming .opt .img
+{
+    /* height: 125px;
+    width: 105px; */
+    height: 6.5vw;
+    width: 5.4vw;
+    border: 2px solid rgb(27,27,27);
+    border-radius: 5px;
+    transition: transform 0.5s ease-in-out;
+}
+.top .opt .img:hover,.coming .opt .img:hover
+{
+    filter: brightness(0.5);
+    cursor: pointer;
+    transform: scale(1.05);
+    border: 2px solid white;
+}
+.top .opt h1,.coming .opt h1
+{
+    position: absolute;
+    /* border: 2px solid white; */
+    /* right: 15px; */
+    left: 6vw;
+    /* top: 30px; */
+    top: 1.6vw;
+    font-weight: 100;
+    color: white;
+    font-size: 0.8vw;
+    text-wrap: balance;
+}
+.top .opt h2,.coming .opt h2
+{
+    position: absolute;
+    right: 1.85vw;
+    top:2.8vw;
+    font-weight: 100;
+    color: rgb(175, 175, 175);
+    font-size: 0.75vw;
+    margin-top: 1.5vw;
+}
+/* ---------------------------------- */
+.new_release,.on_sale
+{
+    position: relative;
+}
+.new_release .filter,.on_sale .filter
+{
+    position: absolute;
+    top: 6vw;
+    right: -12vw;
+    height: auto;
+    width: 10.5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+}
+.new_release .filter h1,.on_sale .filter h1
+{
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 100;
+    font-size: 1.2vw;
+    padding-left: 20px;
+    width: 90%;
+    border-bottom: 3px solid rgb(255, 255, 255);
+}
+.new_release .filter h2,.on_sale .filter h2
+{
+    color: rgb(127,127,127);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 100;
+    font-size: 1.2vw;
+    padding-left: 20px;
+    width: 90%;
+    border-bottom: 3px solid rgb(127,127,127);
+    position: relative;
+}
+.new_release .filter h2 button, .on_sale .filter h2 button
+{
+    border: none;
+    background-color: transparent;
+    color:rgb(127,127,127);
+    /* border: 2px solid white; */
+    position: absolute;
+    right:0px;
+    font-size: 1vw;
+    cursor: pointer;
+}
+.new_release .filter label, .on_sale .filter label
+{
+    color: rgb(197, 197, 197);
+}
+.new_release .filter button, .on_sale .filter button
+{
+    color: white;
+    background-color: rgb(127,127,127);
+    border: none;
+    height: 1.8vw;
+    width: auto;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 100;
+    font-size: 0.8vw;
+    transition: filter 0.5s ease-out;
+}
+.new_release .filter button:hover, .on_sale .filter button:hover
+{
+    filter: brightness(0.6);
+    /* border: 2px solid white; */
+}
+.new_release .filter button:active, .on_sale .filter button:active
+{
+    transform: scale(0.95);
+}

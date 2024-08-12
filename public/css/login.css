@@ -1,0 +1,229 @@
+main{
+    /* border: 2px solid white; */
+    height: auto;
+}
+.container
+{
+    margin-top: 2.5vw;
+    height: auto;
+    width: 24.5vw;
+    /* border: 2px solid white; */
+    background-color: rgb(27,27,27);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2.5vw;
+    border-radius: 2px;
+}
+.icon img
+{
+    margin-top: 2vw;
+    margin-bottom: 3vw;
+    width: 5vw;
+    height: auto;
+}
+.container .heading
+{
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 100;
+    font-size: 1vw;
+    margin-bottom: 1vw;
+}
+.container .value
+{
+    /* border: 2px solid red; */
+    width: 70%;
+    display: flex;
+    gap: 0.6vw;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-bottom: 0.5vw;
+}
+.container .value input 
+{
+    width: 15vw;
+    height: 1.5vw;
+    background-color: rgb(27, 27, 27); 
+    color: white; 
+    border: 2px solid rgb(157, 157, 157);
+    border-radius: 1px;
+    padding: 0.5vw;
+    padding-left: 1vw;
+    font-size: 1vw;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 100;
+}
+input:-webkit-autofill 
+{
+    background-color: rgb(27, 27, 27) !important; /* Match your input background color */
+    color: white !important;
+    border: 2px solid rgb(157, 157, 157) !important;
+    font-size: 0.8vw !important;
+    font-weight: 400 !important;
+    transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s,font-size 5000s ease-in-out 0s;
+
+
+}
+input:-moz-autofill 
+{
+    background-color: rgb(27, 27, 27) !important;
+    color: white !important; 
+    border: 2px solid rgb(157, 157, 157) !important;
+    font-size: 0.8vw !important;
+    transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;/*To  override the default styling */
+}
+.container .value input::placeholder
+{
+    color: rgb(157, 157, 157);
+
+}
+.container .value label
+{
+    color: rgb(157, 157, 157);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    position:relative;
+    top: 0.5vw;
+    left: 0.5vw;
+    background-color: rgb(27, 27, 27);
+    font-size: 0.8vw;
+}
+.rememberbtn
+{
+    width: 70%;
+}
+.rememberbtn label
+{
+    color: rgb(157, 157, 157);
+    font-size: 0.9vw;
+}
+.sign button
+{
+    margin-top: 1vw;
+    /* border: 2px solid white; */
+    border: none;
+    width: 15vw;
+    height: 2.5vw;
+    background-color: rgb(24, 119, 242);
+    color:white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1vw;
+    transition: filter 0.3s ease,transform 0.2s ease;
+}
+.sign button:hover
+{
+    filter: brightness(0.6);
+}
+.sign button:active {
+    filter: brightness(0.4);
+    transform: scale(0.95); 
+}
+.forgot
+{
+    margin-top: 0.6vw;
+    margin-bottom: 1.5vw;
+
+}
+.forgot a
+{
+    color: rgb(157, 157, 157);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    transition: filter 0.3s ease;
+    font-size: 0.85vw;
+}
+.forgot a:hover
+{
+    filter: brightness(1.8);
+}
+.other_container
+{
+    height: auto;
+    width: 18vw;
+    /* border: 2px solid white; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.other_container h1
+{
+    color:rgb(157, 157, 157);
+    font-weight: 100;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 0.8vw;
+}
+.other_container h1::before,.other_container h1::after
+{
+    content: "_______________";
+}
+.other_container .opt
+{   
+    margin-top: 2vw;
+    height: auto;
+    width: 15vw;
+    /* border: 2px solid white; */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+    margin-bottom: 2vw;
+}
+.other_container .opt a
+{
+    height: 2vw;
+    width: 3vw;
+    /* background-color: aliceblue; */
+}
+.container .reg
+{
+    display: flex;
+    flex-direction: column;
+    gap: 0.2vw;
+}
+.container .reg h1
+{
+    font-weight: 100;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(157, 157, 157);
+    font-size: 0.8vw;
+}
+.container .reg a
+{
+    /* text-decoration: none; */
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    font-weight: 100;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 0.8vw;
+    text-align: center;
+    margin-bottom: 2vw;
+}
+.error 
+{
+    color: white;
+    background-color:rgb(57, 57, 57);
+    padding: 0.4vw;
+    margin-top: 0.5vw;
+    margin-bottom: -0.5vw;
+    list-style: none;
+    font-weight: 100;
+    font-size: 0.8vw;
+}
+
+.container .value select
+{
+    width: 16.5vw;
+    height: 2.7vw;
+    background-color: rgb(27, 27, 27); 
+    color: white; 
+    border: 2px solid rgb(157, 157, 157);
+    border-radius: 1px;
+    padding: 0.5vw;
+   /* padding-left: 1vw; */
+    font-size: 1vw;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 100;
+}

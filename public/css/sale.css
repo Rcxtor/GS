@@ -1,0 +1,29 @@
+main
+{
+    border: none;
+}
+.on_sale 
+{   
+    height: auto;
+    width: 69vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    /* border: 2px solid white; */
+}
+.on_sale h5
+{
+    color:white;
+    font-weight: 400;
+    font-size: 2.1vw;
+    text-decoration: none;
+
+}
+.on_sale .container
+{
+    display: flex;
+    gap: 2vw;
+    flex-wrap: wrap;
+    margin-bottom: 2vw;
+}
+/*--------------------------------------------------------------- */

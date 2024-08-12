@@ -1,47 +1,71 @@
-<x-guest-layout>
+<x-app-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
+    @push('styles')
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
+    @endpush
+    @section('title', 'Login | GS')
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
-
+    <form method="POST" action="{{ route('login') }}" autocomplete="new-password">
+    @csrf
+    <div class="container">
         <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        <div class="icon">
+             <img src="{{ asset("image/logo2.png")}}" alt="Logo">
         </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        <h1 class="heading">Sign In</h1>
+        <div class="value">
+            <div>
+                <label for="email" >Email Address</label>
+                <input id="email" type="email" name="email" :value="old('email')" placeholder="Email Address" autocomplete="new-password" required>
+                <x-input-error :messages="$errors->get('email')" class="error" />
+            </div>
+            <!-- Password -->
+            <div>
+                <label for="password" >Password</label>
+                <input id="password" type="password" name="password" placeholder="Password" autocomplete="new-password" required >
+                <x-input-error :messages="$errors->get('password')" class="error" />
+                
+            </div>
         </div>
-
         <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
+         <div class="rememberbtn">
+            <label for="remember_me">
+            <input id="remember_me" type="checkbox" name="remember">
+                Remember Me
             </label>
         </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
+        <div class="sign">
+            <button type="submit">
+                {{ __('Sign In') }}
+            </button>
+        </div>
+        <div class="forgot">
+         @if (Route::has('password.request'))
+                <a href="{{ route('password.request') }}">
                     {{ __('Forgot your password?') }}
                 </a>
             @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
         </div>
+        <div class="other_container">
+            <h1>Or Sign With</h1>
+            <div class="opt">
+                <a href="">+</a>
+                <a href="">+</a>
+                <a href="">+</a>
+                <a href="">+</a>
+                <a href="">+</a>
+                <a href="">+</a>
+                <a href="">+</a>
+                <a href="">+</a>
+            </div>
+        </div>
+        <div class="reg"> 
+            <h1>Don't have a Account</h1>
+            <a href="{{ route('register') }}">
+                {{ __('Create Account') }}
+            </a>
+        </div>
+    </div>
     </form>
-</x-guest-layout>
+</x-app-layout>

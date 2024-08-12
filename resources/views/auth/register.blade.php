@@ -1,52 +1,96 @@
-<x-guest-layout>
+<x-app-layout>
+    @push('styles')
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
+    @endpush
+    @section('title', 'Register | GS')
     <form method="POST" action="{{ route('register') }}">
-        @csrf
-
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+    @csrf
+    <div class="container">
+        <div class="icon">
+            <img src="{{ asset("image/logo2.png")}}" alt="Logo">
         </div>
+        <h1 class="heading" style="font-size:2vw; margin-top:-1vw;">Register</h1>
+        <div class="value">
+            <!-- Name -->
+            <div>
+                <label for="name">Name</label>
+                <input id="name" type="text" name="name" required/>
+                <!-- <x-input-error :messages="$errors->get('name')" class="mt-2" /> -->
+            </div>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <!-- Userame -->
+            <div>
+                <x-input-label for="username" :value="__('Username')" />
+                <input id="username" type="text" name="username" required/>
+                <!-- <x-input-error :messages="$errors->get('username')" class="mt-2" /> -->
+            </div>
+
+            <!-- Email Address -->
+            <div class="mt-4">
+                <x-input-label for="email" :value="__('Email')" />
+                <input id="email" type="email" name="email" :value="old('email')" required />
+                <!-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> -->
+            </div>
+
+            <!-- DOB -->
+            <div>
+                <x-input-label for="date_of_birth" :value="__('Date of Birth')" />
+                <input id="date_of_birth" type="date" name="date_of_birth"/>
+                <!-- <x-input-error :messages="$errors->get('date_of_birth')" class="mt-2" /> -->
+            </div>
+
+            <!-- Phone -->
+            <div>
+                <x-input-label for="phone_number" :value="__('Phone')" />
+                <input id="phone_number" type="number" name="phone_number"/>
+                <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
+            </div>
+            <!-- Gender -->
+            <div>
+                <x-input-label for="gender" :value="__('Gender')" />
+                <select id="gender" name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="MENTALLY RETARD">MENTALLY RETARD</option>
+                </select>
+                <x-input-error :messages="$errors->get('gender')" class="mt-2" />
+            </div>
+
+            <!-- Password -->
+            <div class="mt-4">
+                <x-input-label for="password" :value="__('Password')" />
+
+                <input id="password"
+                                type="password"
+                                name="password"
+                                required autocomplete="new-password" />
+
+                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="mt-4">
+                <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+
+                <input id="password_confirmation"
+                                type="password"
+                                name="password_confirmation" required autocomplete="new-password" />
+
+                <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+            </div>
         </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
+        <div class="sign">
+            <button type="submit">
                 {{ __('Register') }}
-            </x-primary-button>
+            </button>
         </div>
+        <div class="reg"> 
+            <h1 style="margin-top:1vw;">Already registered?</h1>
+            <a href="{{ route('login') }}">
+                {{ __('Sign In ') }}
+            </a>
+        </div>
+    </div>
     </form>
-</x-guest-layout>
+    </x-app-layout>

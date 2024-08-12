@@ -1,0 +1,398 @@
+main
+{
+    /* border: 2px solid white; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    gap: 3.5vw;
+}
+.main_container
+{
+    /* border: 2px solid white; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main_container .title
+{   
+    /* border: 2px solid white; */
+    width: 100%;
+    align-items: center;
+    justify-content: start;
+    margin-top: 2.5vw;
+}
+.main_container .title h1
+{
+    font-size: 2.6vw;
+    font-weight: 400;
+    color: white;
+    text-wrap: wrap;
+}
+.main_container .slide_main 
+{
+    /* border: 2px solid  rgb(255, 255, 255); */
+    /* height: 510px;
+    width: 1010px; */
+    height: 26.5vw;
+    width: 52.5vw;
+    /* margin-top: 34px; */
+    margin-top: 1.8vw;
+    /* margin-bottom: 24px; */
+    margin-bottom: 1.3vw;
+    position: relative;
+}
+.main_container .slide_main img
+{
+    /* height: 510px;
+    width: 1010px; */
+    height: 26.5vw;
+    width: 52.5vw;
+    border-radius: 20px;
+
+}
+.main_container .slide_main .wishbtn
+{
+    position: absolute;
+    /* top: 35px; */
+    top:2vw;
+    /* right: 50px; */
+    right: 2.5vw;
+    background-color: #ffffff;
+    border-radius: 50%;
+    height: 1.5vw;
+    width: 1.5vw;
+    border: 1px solid rgb(127,127,127);
+
+}
+.main_container .slide_main .wishbtn:hover
+{
+    background-color:rgb(127,127,127);
+    border: 1px solid rgb(27, 27, 27);
+    cursor: pointer;
+}
+.main_container .slide_main .trailerbtn
+{
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 15px;
+    height: 2.6vw;
+    width: 6vw;
+    border: 1px solid rgb(127,127,127);
+    font-weight: 800;
+    color: rgb(57,57,57);
+    font-size: 0.7vw;
+    /* bottom: 35px; */
+    bottom:1.9vw;
+    /* left: 56px; */
+    left:3vw;
+}
+.main_container .slide_main .trailerbtn:hover
+{
+    background-color:rgb(127,127,127);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(27, 27, 27);
+    cursor: pointer;
+
+}
+.main_container .slide_main h1
+{
+    position: absolute;
+    color:white;
+    font-weight: 200;
+    font-size: 1vw;
+    left:10vw;
+    bottom: 2.5vw;
+}
+.main_container .slide_main h3
+{
+    background-color: white;
+    height: 1.2vw;
+    width: 3vw;
+    text-align: center;
+    border-radius: 5px;
+    border: 1.5px solid rgb(127,127,127);
+    position: absolute;
+    top:1vw;
+    left: 1vw;
+    font-weight: 100;
+}
+.main_container .slide_opt 
+{
+    /* border: 2px solid  rgb(255, 255, 255); */
+    /* height: 90px;
+    width: 1200px; */
+    height: 4.7vw;
+    /* width: 60vw; */
+    width: auto;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    gap: 1.5vw;
+    /* margin-bottom: 30px; */
+    margin-bottom: 1.5vw;
+}
+.main_container .slide_opt .opt
+{
+    /* height: 88px;
+    width: 180px; */
+    height: 4.5vw;
+    width: 9.2vw; 
+    border: 1px solid rgb(67,67,67);
+    border-radius: 9px;
+    /* background-color: rgb(27,27,27); */
+}
+.main_container .slide_opt .opt img
+{
+    height: 4.5vw;
+    width: 9.2vw; 
+    border-radius: 10px;
+    object-fit: cover;
+
+}
+.main_container .slide_opt .opt img:hover
+{
+    filter: brightness(0.5)
+}
+.main_container .slide_opt .opt img:hover
+{
+    cursor: pointer;
+}
+.main_container .desc
+{
+    /* display: flex; */
+    /* justify-content: center;  */
+    /* border: 2px solid rgb(255, 255, 255); */
+    color: white;
+    width: 46vw;
+    /* width: 90%; */
+    /* margin-bottom: 35px; */
+    margin-bottom: 1.6vw;
+}
+.main_container .desc h1
+{
+    font-weight: 300;
+    font-size: 0.8vw;
+    color:rgb(197,197,197);
+
+}
+.main_container .extra
+{
+    width: 50vw;
+    height: auto;
+    border: 4px solid rgb(27, 27, 27);
+    margin-bottom: 3.2vw;
+}
+.main_container .extra h1
+{
+    color:white;
+    font-size: 0.9vw;
+    font-weight: 100;
+    /* padding: 10px; */
+    padding: 0.5vw;
+}
+.main_container .req
+{
+    /* border: 1px solid white; */
+    margin-bottom: 3vw;
+}
+.main_container .req h1
+{
+    color:rgb(197,197,197);
+    font-weight: 400;
+    font-size: 1vw;
+    margin-bottom: 0.5vw;
+}
+.main_container .req .container
+{
+    /* height: 305px; */
+    height: 16vw;
+    /* width: 975px; */
+    width: 48vw;
+    background-color: rgb(27, 27, 27);
+    border-radius: 0.6vw;
+    /* border: 2px solid white; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.9vw;
+}
+.main_container .req .container .min, .main_container .req .container .rec
+{
+    width: 43%;
+    height: 85%;
+}
+.main_container .req .container .min
+{
+    border-right: 2px solid rgb(197,197,197);
+}
+.main_container .req .container .min h1, .main_container .req .container .rec h1
+{
+    font-size: 0.9vw;
+    font-weight: 100;
+    padding-left: 0.5vw;
+
+}
+.main_container .req .container .min h2, .main_container .req .container .rec h2
+{
+    color:rgb(197,197,197);
+    font-weight: 100;
+    font-size: 0.9vw;
+    padding-left: 0.8vw;
+}
+.main_container .req .container .min h3, .main_container .req .container .rec h3
+{
+    color:rgb(137,137,137);
+    font-weight: 100;
+    font-size: 0.8vw;
+    padding-left: 1.2vw;
+    padding-bottom: 0.3vw;
+}
+.pricebar
+{
+    /* border:2px solid red;      */
+    margin-top:7.2vw; 
+    min-height: 36vw; 
+    width: 14vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pricebar img
+{
+    height: 90px;
+    width: 260px;
+    object-fit: cover;
+    border-radius: 0.2vw;
+    margin-bottom: 0.5vw;
+}
+.pricebar .title
+{   
+    width: 12.5vw;
+    font-size: 2vw;
+    font-weight: 400;
+    color: white;
+    height: auto;
+    text-wrap: wrap;
+    /* border:2px solid red;      */
+    margin-bottom: 0.2vw;
+}
+.pricebar .price
+{
+    font-size: 1.2vw;
+    font-weight: 400;
+    color: rgb(157,157,157);
+    width: 85%;
+    margin-bottom: 1.5vw;
+}
+.pricebar button
+{
+    /* width: 215px; */
+    width: 12vw;
+    /* height: 58px; */
+    height: 2.8vw;
+    border-radius: 0.7vw;
+    margin-bottom: 0.4vw;
+    background-color: rgb(127,127,127);
+    color:rgb(255,255,255);
+    font-size: 1vw;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border: none;
+}
+.pricebar button:hover
+{
+    filter: brightness(0.8);
+    cursor: pointer;
+}
+.pricebar .extra_container
+{
+    /* border: 2px solid white; */
+    width: 90%;
+    /* width: 10.5vw; */
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+}
+.pricebar .extra_container .info
+{
+    display: flex;
+    /* gap:0.2vw; */
+}
+.pricebar .extra_container .info h3,.pricebar .extra_container .info h4
+{
+    /* color:rgb(157,157,157); */
+    flex: 1;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 300;
+    font-size: 0.8vw;
+    margin-bottom: 0.8vw;
+    /* padding-left: 1vw; */
+    padding-bottom: 0.2vw;
+    /* padding-right: 1vw; */
+    /* border: 2px solid white;     */
+    border-bottom: 3px solid rgb(27, 27, 27);
+
+
+}
+.pricebar .extra_container .info h4
+{
+    text-align: end;
+    color:rgb(157,157,157);
+    /* border:2px solid red;      */
+
+}
+.last_btn
+{
+    display: flex;
+    flex-direction: row;
+    gap: 0.4vw;
+}
+.last_btn button
+{
+    height: 1.8vw;
+    width: 6.5vw;
+    font-size: 0.75vw;
+    border-radius: 0.5vw;
+}
+.sep
+{
+    border: 2px solid rgb(27, 27, 27);
+    margin-left: -1.6vw;
+    margin-right: -1.6vw;
+    margin-top:6.5vw; 
+    height: 38vw; 
+}
+.mini-player 
+{
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    z-index: 2;
+}
+.mini-player iframe
+{
+    height: 26.5vw;
+    width: 52.5vw;
+    border-radius: 20px;
+}
+.close-btn
+{
+    position: absolute;
+    bottom: 10%;
+    right: 2%;
+    height: 2vw;
+    width: 3vw;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(34, 34, 34);
+    color: rgb(37, 37, 37);
+    cursor: pointer;
+    font-size: 0.8vw;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 300;
+    border-radius: 0.4vw;
+}
+.close-btn:hover
+{
+    filter: brightness(0.6);
+}

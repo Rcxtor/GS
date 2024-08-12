@@ -4,33 +4,148 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link rel="icon" href="{{ asset('logo2.png') }}" type="image/x-icon">
+        <title>@yield('title', 'Default Title')</title>
+        <!-- Style -->
+        <link rel="stylesheet" href="{{ asset('css/applayout.css') }}" />
+        @stack('styles')
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @include('layouts.navigation')
-
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
+    <body>
+        <section>
+            <!-- Nav bar -->
+            <nav>
+                <!-- logo -->
+                <div class="logo">
+                    <img src="{{ asset("image/logo2.png")}}" alt="Logo">
+                </a>
+                </div>
+                <!-- Store btton -->
+                <div class="back_to_store" Style="display:flex;align-items: center;">
+                    <a href="{{route('welcome')}}"><svg xmlns="http://www.w3.org/2000/svg" height="3vh" viewBox="0 -960 960 960" width="3vh" fill="#e8eaed"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg>STORE </a>
+                </div>
+                <!-- Search bar -->
+                <div class="search_bar">
+                    <form method="GET" action="{{route('searched')}}">
+                        @csrf
+                        <input id="search" type="text" name="search" placeholder="Search Store"></input>
+                        <button class="scrbtn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" height="12" width="12" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6 .1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></button>
+                    </form>
+                </div>
+                <div class="link_container">
+                    <div class="link1">
+                            <x-nav-link href="{{route('welcome')}}" :active="request()->routeIs('welcome')">
+                                Discover
+                            </x-nav-link>
+                        <div class="drop">
+                            <x-nav-link class="abc" href="{{route('browse')}}" :active="request()->routeIs('browse')">
+                                Browse
+                            </x-nav-link>
+                        
+                                <div class="browse_cont">
+                                    <a href="">Adventure</a>
+                                    <a href="">Racing</a>
+                                    <a href="">Fantasy</a>
+                                    <a href="">Action</a>
+                                    <a href="">Fighting</a>
+                                    <a href="">Card Game</a>
+                                    <a href="">Explore</a>
+                                    <a href="">Indie</a>
+                                    <a href="">Horror</a>
+                                    <a href="">MOBA</a>
+                                    <a href="{{'browse'}}">....</a>
+                                </div>
+                        </div>
                     </div>
-                </header>
-            @endisset
-
+                    <div class="link1">
+                        @auth
+                            @if(auth()->user()->role=='admin')
+                                <x-nav-link href="{{route('dashboard')}}" :active="request()->routeIs('dashboard')">
+                                    Dashboard
+                                </x-nav-link>
+                            @endif
+                            <x-nav-link href="{{route('wishlist')}}" :active="request()->routeIs('wishlist')">  
+                                Wishlist
+                            </x-nav-link>
+                            <x-nav-link href="{{route('cart')}}" :active="request()->routeIs('cart')">  
+                                Cart
+                            </x-nav-link>
+                        @endauth 
+                    </div>
+                </div>
+                <div Style="display:flex; align-items:center; color:rgb(99,99,99)">|</div>
+                <div class="profile_btn">
+                    <button onclick="toggleDropDown()" class="profile">Profile</button>
+                    <div id="dropdownContent" class="profile_content">
+                        @auth
+                            <a href="{{route('profile.edit')}}">Profile</a>
+                            <a href="">Order History</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                        @else
+                            <a href="{{ route('login') }}">Login</a>
+                            <a href="{{ route('register') }}">Register</a>
+                        @endauth
+                    </div>
+                </div>
+            </nav>
+                @isset($header)
+                    <header style="color:white;">
+                        <div>
+                            {{ $header }}
+                        </div>
+                    </header>
+                @endisset
             <!-- Page Content -->
             <main>
                 {{ $slot }}
             </main>
+        </section>
+    <footer>
+        <div class="foorter_container">
+            <div class="about">
+                <img src="{{ asset("image/logo2.png")}}" alt="Logo">
+                <h1>About Us:</h1>
+                <h2>Brands or product names are the trademark of thier respectice owners</h2>
+            </div>
+            <div class="TNC">
+                <a href="">Terms and Services</a>
+                <a href="">Store Return Policy</a>
+                <a href="">Contact Us</a>
+            </div>
+            <div class="connect">
+                <h1>Connect On:</h1>
+                <div class="links">
+                    <a href="">.</a>
+                </div>
+                <div class="links">
+                    <a href="">.</a>
+                </div>
+                <div class="links">
+                    <a href="">.</a>  
+                </div>
+                
+            </div>
         </div>
+    </footer>
+    <script>
+        function toggleDropDown()
+        {
+            document.getElementById("dropdownContent").classList.toggle("show")
+        }
+        window.onclick =function(event) {
+            if (!event.target.matches('.profile')) {
+                var dropdowns = document.getElementsByClassName("profile_content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
     </body>
 </html>

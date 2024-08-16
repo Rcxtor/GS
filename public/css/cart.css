@@ -1,0 +1,43 @@
+.outer-container h1
+{
+    margin-bottom: 2.25vw;
+}
+
+.outer-container .item-container .move-item
+{
+    position: absolute;
+    bottom:4.5vw;
+    right:15.5vw;
+    text-wrap:nowrap;
+    /* border: 2px solid white; */
+
+}
+.outer-container .item-container .move-item a
+{
+    color:rgb(127,127,127);
+    font-size: 0.75vw;
+    font-weight: 100;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.outer-container .item-container .move-item a:hover
+{
+    filter: brightness(1.5);
+}
+
+.outer-container .item-container .warning-container
+{
+
+    display:flex; 
+    gap:0.5vw; 
+    margin-left: 9vw;
+}
+
+.outer-container .item-container .warning
+{
+    color:rgb(195,195,195);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 100;
+    font-size: 0.75vw;
+    margin-top: 0.1vw;
+}

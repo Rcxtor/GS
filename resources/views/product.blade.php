@@ -11,7 +11,10 @@
             <!-- <img src="{{ asset('image/test2.png') }}"> -->
             <img src="{{ asset($product->cover) }}" alt="Product Cover">
 
-            <button class="wishbtn"></button>
+            <form action="{{ route('wishlist.add', $product->id) }}" method="POST" style="display:inline;">
+                @csrf
+                <button class="wishbtn" type="submit"></button>
+            </form>
              <!--  --> 
              <div id="miniPlayer" class="mini-player">
                 <iframe id="youtubeFrame"></iframe>
@@ -102,7 +105,10 @@
 
         <button style=" background-color: rgb(140,179,22)">Buy Now</button>
         <button>Add to Cart</button>
-        <button>Add to Wishlist</button>
+        <form action="{{ route('wishlist.add', $product->id) }}" method="POST" style="display:inline;">
+            @csrf
+            <button type="submit">Add to Wishlist</button>
+        </form>
         <div class="extra_container">
             <div class="info">
                 <h3>Developer:</h3>

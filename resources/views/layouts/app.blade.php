@@ -64,7 +64,7 @@
                                     Dashboard
                                 </x-nav-link>
                             @endif
-                            <x-nav-link href="{{route('wishlist')}}" :active="request()->routeIs('wishlist')">  
+                            <x-nav-link href="{{route('wishlist.show')}}" :active="request()->routeIs('wishlist')">  
                                 Wishlist
                             </x-nav-link>
                             <x-nav-link href="{{route('cart')}}" :active="request()->routeIs('cart')">  

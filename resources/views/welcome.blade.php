@@ -8,7 +8,10 @@
         <img src="{{ asset($games->firstWhere('featured', 1)->cover) }}" alt="Featured Game">
         <h1 class="slide-title">{{$games->firstWhere('featured', 1)->title}}</h1>
         <h1 class="slide-price">${{$games->firstWhere('featured', 1)->price}}</h1>
-        <button class="wishbtn"></button>
+        <form id="wishlist-form" action="{{ route('wishlist.add', $games->firstWhere('featured', 1)->id) }}" method="POST" style="display:inline;">
+            @csrf
+            <button class="wishbtn" type="submit"></button>
+        </form>
         <a class="readlnk" href="{{ route('product.show', $games->firstWhere('featured', 1)->slug) }}">
             <button class="readbtn" >Read More</button>
         </a>
@@ -17,7 +20,7 @@
     <div class="slide_opt">
         @foreach($games->where('featured', 1)->take(6) as $game)
             <div class="opt">
-                <img src="{{ asset($game->cover) }}" alt="{{ $game->title }}" data-href="{{ route('product.show', $game->slug) }}" data-title="{{ $game->title }}" data-price="{{ $game->price }}">
+                <img src="{{ asset($game->cover) }}" alt="{{ $game->title }}" data-href="{{ route('product.show', $game->slug) }}" data-title="{{ $game->title }}" data-price="{{ $game->price }}" data-id="{{ $game->id }}">
             </div>
         @endforeach 
     </div>
@@ -31,7 +34,10 @@
                         <img src="{{ asset($game->cover) }}" style="object-fit:cover;width: 12vw;height: 15.6vw; border-radius:5px;">
                     </a>
                     </div>
-                    <button class="wishbtn"></button>
+                    <form action="{{ route('wishlist.add', $game->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        <button class="wishbtn" type="submit"></button>
+                    </form>
                         @if ($game->on_sale)
                             <h4>{{ $game->sale_per}}%</h4>
                         @endif
@@ -60,7 +66,10 @@
                         <!-- <img src="image/test2.png" style="object-fit:cover;width: 12vw;height: 15.6vw; border-radius:5px;"> -->
                     </a>
                     </div>
-                    <button class="wishbtn"></button>
+                    <form action="{{ route('wishlist.add', $game->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        <button class="wishbtn" type="submit"></button>
+                    </form>
                     <h4>{{ $game->sale_per}}%</h4>
                     <h1>{{ $game->title }}</h1>
                     <div style="display:flex; gap:0.5vw;">
@@ -168,6 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const slideTitle = document.querySelector('.slide-title'); // Get the title element
     const slidePrice = document.querySelector('.slide-price'); // Get the price element
     const readMoreBtn = document.querySelector('.readlnk');
+    const wishlistForm = document.getElementById('wishlist-form');
 
     let currentSlideIndex = 0;
     let slideInterval;
@@ -181,6 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
             slideTitle.textContent = slides[index].getAttribute('data-title'); // Update the title
             slidePrice.textContent = `$${slides[index].getAttribute('data-price')}`; // Update the price
             readMoreBtn.href = slides[index].getAttribute('data-href'); // Update Read More button href
+            wishlistForm.action = `/wishlist/add/${slides[index].getAttribute('data-id')}`;
 
             slides.forEach((slide, i) => {
                 slide.classList.toggle('active', i === index); // Apply darkening to the active slide

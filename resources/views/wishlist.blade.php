@@ -14,36 +14,24 @@
             </label>
         </div> 
 
+        @if($wishlists->isEmpty())
+            <p style="color:white; font-size:2vw; margin-left:2vw; background-color:rgb(27,27,27); padding:1vw;border-radius:1vw; width:25vw;">No games added to Wishlist.</p>
+        @endif
+        @foreach($wishlists as $wishlist)
         <div class="item-container">
-            <img src="{{asset('/image/test.png')}}">
-            <a href="">Game Zero</a>
-            <h1 class="sale">Sale Ends: 11/25/2024</h1>
-            <h5 class="sale-per">50%</h5>
-            <h2 class="item-price">$69.69</h2>
-            <h4 class="available">Available: 11/15/2024</h4>
-            <div class="remove-item"><a href="">Remove</a></div>
+            <img src="{{asset($wishlist->game->cover)}}">
+            <a href="{{ route('product.show', $wishlist->game->slug) }}">{{ $wishlist->game->title }}</a>
+            <h1 class="sale">Sale Ends:{{ $wishlist->game->sale_date }}</h1>
+            <h5 class="sale-per">{{ $wishlist->game->sale_per }}%</h5>
+            <h2 class="item-price">${{ $wishlist->game->price }}</h2>
+            <h4 class="available">Available: {{$wishlist->game->release}}</h4>
+            <form id="remove-wishlist-form-{{ $wishlist->game->id }}" action="{{ route('wishlist.remove', $wishlist->game->id) }}" method="POST">
+                @csrf
+                <div class="remove-item"><a href="#" onclick="event.preventDefault(); document.getElementById('remove-wishlist-form-{{ $wishlist->game->id }}').submit();">Remove</a></div>
+            </form>
             <button class="cart">View In Cart</button>
         </div> 
-        <div class="item-container">
-            <img src="{{asset('/image/test2.png')}}">
-            <a href="">Game Zero: Two</a>
-            <h1 class="sale">Sale Ends: 11/25/2024</h1>
-            <h5 class="sale-per">50%</h5>
-            <h2 class="item-price">$69.69</h2>
-            <h4 class="available">Available: 11/15/2024</h4>
-            <div class="remove-item"><a href="">Remove</a></div>
-            <button class="cart">View In Cart</button>
-        </div> 
-        <div class="item-container">
-            <img src="{{asset('/image/test3.png')}}">
-            <a href="">Game Zero</a>
-            <h1 class="sale">Sale Ends: 11/25/2024</h1>
-            <h5 class="sale-per">50%</h5>
-            <h2 class="item-price">$69.69</h2>
-            <h4 class="available">Available: 11/15/2024</h4>
-            <div class="remove-item"><a href="">Remove</a></div>
-            <button class="cart">View In Cart</button>
-        </div> 
+        @endforeach
 
         <div class="filter">
             <h1>Filter<a href="">&#10227;</a></h1>
@@ -87,11 +75,14 @@
                 <button type="submit">Apply Filters</button>
         </div>
     </div>
-    <script>
-    function toggleDisplay(className) 
-    {
-        const element = document.querySelector(`.${className}`);
-        element.style.display = element.style.display === 'none' ? 'flex' : 'none';
-    }
+    <div class="pingupingu ">
+        {{ $wishlists->links('vendor.pagination.default') }}
+    </div>
+<script>
+function toggleDisplay(className) 
+{
+    const element = document.querySelector(`.${className}`);
+    element.style.display = element.style.display === 'none' ? 'flex' : 'none';
+}
 </script>
 </x-app-layout>

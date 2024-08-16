@@ -34,7 +34,10 @@
                         <img src="{{ asset($game->cover) }}" style="object-fit:cover;width: 12vw;height: 15.6vw; border-radius:5px;">
                     </a>
                     </div>
-                    <button class="wishbtn"></button>
+                    <form action="{{ route('wishlist.add', $game->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        <button class="wishbtn" type="submit"></button>
+                    </form>
                     <h4>{{ $game->sale_per}}%</h4>
                     <h1>{{ $game->title }}</h1>
                     <div style="display:flex; gap:0.5vw;">

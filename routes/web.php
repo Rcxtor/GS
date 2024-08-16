@@ -7,6 +7,7 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\OnSaleController;
 use App\Http\Controllers\BrowseController;
 use App\Http\Controllers\SearchedController;
+use App\Http\Controllers\WishlistController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -57,5 +58,11 @@ Route::get('/searched', [ProductController::class, 'search'])->name('searched');
 // Wishlist
 Route::get('wishlist', function () {
     return view('wishlist');})->name('wishlist');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/wishlist', [WishlistController::class, 'showWishlist'])->name('wishlist.show');
+    Route::post('/wishlist/add/{game}', [WishlistController::class, 'addToWishlist'])->name('wishlist.add');
+    Route::post('/wishlist/remove/{game}', [WishlistController::class, 'removeFromWishlist'])->name('wishlist.remove');
+});
+
 
 require __DIR__.'/auth.php';

@@ -56,9 +56,11 @@ Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product
 Route::get('/searched', [ProductController::class, 'search'])->name('searched');
 
 // Wishlist
-Route::get('wishlist', function () {
-    return view('wishlist');})->name('wishlist');
+// Route::get('wishlist', function () {
+//     return view('wishlist');})->name('wishlist');
 Route::middleware(['auth'])->group(function () {
+    Route::get('/wishlist/filter', [WishlistController::class, 'filter'])->name('wishlist.filter');
+    Route::get('/wishlist/search', [WishlistController::class, 'search'])->name('wishlist.search');
     Route::get('/wishlist', [WishlistController::class, 'showWishlist'])->name('wishlist.show');
     Route::post('/wishlist/add/{game}', [WishlistController::class, 'addToWishlist'])->name('wishlist.add');
     Route::post('/wishlist/remove/{game}', [WishlistController::class, 'removeFromWishlist'])->name('wishlist.remove');

@@ -55,8 +55,8 @@ main
     margin-left: auto;
     position: relative;
     display: inline-block;
-    width: 3.5em;
-    height: 2em;
+    width: 2.9vw;
+    height: 1.68vw;
 }
 .switch input 
 {
@@ -81,11 +81,14 @@ main
 {
     position: absolute;
     content: "";
-    height: 1.4em;
-    width: 1.4em;
+    /* height: 1.4em; */
+    height:1.1vw;
+    width: 1.1vw;
     border-radius: 20px;
-    left: 0.27em;
-    bottom: 0.25em;
+    /* left: 0.27em; */
+    left: 0.21vw;
+    /* bottom: 0.25em; */
+    bottom: 0.20vw;
     background-color: rgb(27, 27, 27);
     transition: .4s;
 }
@@ -100,7 +103,7 @@ input:focus + .slider
 }
 input:checked + .slider:before 
 {
-    transform: translateX(1.4em);
+    transform: translateX(1.2vw);
     background-color: #fff;
 }
 /* ------------ */
@@ -216,6 +219,8 @@ input:checked + .slider:before
     background-color: rgb(0, 162, 232);
     border-radius: .5vw;
     cursor: pointer;
+    font-weight: 600;
+    font-size: 0.6vw;
 }
 .outer-container .item-container .cart:hover
 {
@@ -346,4 +351,39 @@ input:checked + .slider:before
     padding: 5px 10px;
     border-radius: 4px; 
     font-weight: bold; 
+}
+.outer-container h6
+{
+    color:rgb(158, 158, 158);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 100;
+    font-size: 0.8vw;
+}
+.outer-container h7
+{
+    color:rgb(255, 255, 255);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 100;
+    font-size: 0.8vw;
+}
+
+.outer-container .filter .wishlist-search
+{
+    display: flex;
+    justify-content: center;
+}
+.outer-container .filter .wishlist-search input
+{
+    background-color: rgb(27, 27, 27);
+    border: 2px solid rgb(100,100,100);
+    width: 9vw;
+    height: 1.55vw;
+    position: relative;
+    padding-left: 0.4vw;
+    border-radius: 0.3vw;
+    color:white;
+}
+.outer-container .filter .wishlist-search input::placeholder
+{
+    font-size: 0.7vw;
 }

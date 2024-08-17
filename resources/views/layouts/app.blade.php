@@ -28,7 +28,7 @@
                 <div class="search_bar">
                     <form method="GET" action="{{route('searched')}}">
                         @csrf
-                        <input id="search" type="text" name="search" placeholder="Search Store"></input>
+                        <input id="search" type="text" name="search" placeholder="Search Store" value="{{ucfirst(request('search')) ?? ""}}"></input>
                         <button class="scrbtn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" height="12" width="12" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6 .1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></button>
                     </form>
                 </div>
@@ -38,7 +38,7 @@
                                 Discover
                             </x-nav-link>
                         <div class="drop">
-                            <x-nav-link class="abc" href="{{route('browse')}}" :active="request()->routeIs('browse')">
+                            <x-nav-link class="abc" href="{{route('browse')}}" :active="request()->routeIs('browse') || request()->routeIs('genre.filter')">
                                 Browse
                             </x-nav-link>
                         
@@ -64,7 +64,7 @@
                                     Dashboard
                                 </x-nav-link>
                             @endif
-                            <x-nav-link href="{{route('wishlist.show')}}" :active="request()->routeIs('wishlist')">  
+                            <x-nav-link href="{{route('wishlist.show')}}" :active="request()->routeIs('wishlist.show') || request()->routeIs('wishlist.filter') || request()->routeIs('wishlist.search')">  
                                 Wishlist
                             </x-nav-link>
                             <x-nav-link href="{{route('cart')}}" :active="request()->routeIs('cart')">  
@@ -99,6 +99,20 @@
                     </header>
                 @endisset
             <!-- Page Content -->
+             @if (session('success'))
+                <div class="message-container" id="success-message">
+                    <h1 style="color:rgb(255,201,14); margin-top:-0.2vw; margin-right:0.2vw;padding:0.5vw 0vw; padding-left: 0.5vw;border-left: 0.3vw solid rgb(0, 162, 232);">⚠</h1>
+                    <!-- <h1>Game added to wishlist!</h1> -->
+                    <h1>{{ session('success') }}</h1>
+                </div>
+            @elseif(session('error'))
+                <div class="message-container" id="success-message">
+                    <h1 style="color:rgb(255, 55, 65); margin-top:-0.2vw; margin-right:0.2vw;padding:0.5vw 0vw; padding-left: 0.5vw;border-left: 0.3vw solid rgb(0, 162, 232);">⚠</h1>
+                    <!-- <h1>Game added to wishlist!</h1> -->
+                    <h1>{{ session('error') }}</h1>
+                </div>
+            @endif
+           
             <main>
                 {{ $slot }}
             </main>
@@ -146,6 +160,18 @@
                 }
             }
         }
+        document.addEventListener('DOMContentLoaded', function() {
+        const message = document.getElementById('success-message');
+
+        // Add the 'show' class to fade in
+        // message.classList.add('show');
+
+        // Remove the 'show' class after 2 seconds to fade out
+        setTimeout(function() {
+            // message.classList.remove('show');
+            message.classList.add('hide');
+        }, 1000); // 2000 milliseconds = 2 seconds
+    });
     </script>
     </body>
 </html>

@@ -389,3 +389,31 @@ main
     flex-direction: column;
     align-items: center;
 }
+.message-container
+{
+    height: 2vw;
+    width: 15vw;
+    border: 1px solid rgb(57,57,57);
+    background-color: rgb(27, 27, 27);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding-left: 0.6vw;
+
+    opacity: 1;
+    transition: opacity 0.6s ease-in-out;
+    position: fixed;
+    top: 6vw;
+    right: 15vw;
+    z-index: 9999;
+}
+.message-container h1
+{
+    color:rgb(255, 255, 255);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 100;
+    font-size: 0.8vw;
+}
+.message-container.hide {
+    opacity: 0;
+}

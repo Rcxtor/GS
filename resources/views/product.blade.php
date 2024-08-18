@@ -104,7 +104,11 @@
         </h2>
 
         <button style=" background-color: rgb(140,179,22)">Buy Now</button>
-        <button>Add to Cart</button>
+        <form action="{{ route('cart.add', $product->id) }}" method="POST">
+            @csrf
+            <button type="submit">Add to Cart</button>
+        </form>
+        <!-- <button>Add to Cart</button> -->
         <form action="{{ route('wishlist.add', $product->id) }}" method="POST" style="display:inline;">
             @csrf
             <button type="submit">Add to Wishlist</button>

@@ -37,7 +37,7 @@
             <a href="{{ route('product.show', $wishlist->game->slug) }}">{{ $wishlist->game->title }}</a>
             @if ($wishlist->game->on_sale)
                 @if ($wishlist->game->sale_date)
-                    <h1 class="sale">Sale Ends:{{ $wishlist->game->sale_date }}</h1>
+                    <h1 class="sale">Sale Ends:{{ $wishlist->game->sale_date->format('m/d/Y') }}</h1>
                 @endif
                 <h5 class="sale-per">{{ $wishlist->game->sale_per }}%</h5>
             @endif
@@ -57,7 +57,11 @@
                 @csrf
                 <div class="remove-item"><a href="#" onclick="event.preventDefault(); document.getElementById('remove-wishlist-form-{{ $wishlist->game->id }}').submit();">Remove</a></div>
             </form>
-            <button class="cart">View In Cart</button>
+            <form action="{{ route('cart.add', $wishlist->game->id) }}" method="POST">
+                @csrf
+                <button class="cart" type="submit">View In Cart</button>
+            </form>
+            
         </div> 
         @endforeach
 

@@ -65,10 +65,10 @@
                                 </x-nav-link>
                             @endif
                             <x-nav-link href="{{route('wishlist.show')}}" :active="request()->routeIs('wishlist.show') || request()->routeIs('wishlist.filter') || request()->routeIs('wishlist.search')">  
-                                Wishlist
+                                Wishlist @if($wishlistCount > 0) ({{ $wishlistCount }}) @endif
                             </x-nav-link>
-                            <x-nav-link href="{{route('cart')}}" :active="request()->routeIs('cart')">  
-                                Cart
+                            <x-nav-link href="{{route('cart.show')}}" :active="request()->routeIs('cart.show')">  
+                                Cart @if($cartCount > 0) ({{ $cartCount }}) @endif
                             </x-nav-link>
                         @endauth 
                     </div>

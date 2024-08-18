@@ -6,6 +6,7 @@ use App\Http\Controllers\ReleaseController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\OnSaleController;
 use App\Http\Controllers\BrowseController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\SearchedController;
 use App\Http\Controllers\WishlistController;
 
@@ -18,8 +19,15 @@ Route::get('/genre/{genre}', [BrowseController::class, 'filterByGenre'])->name('
 
 
 // Cart
-Route::get('cart',function(){
-    return view('cart');})->name('cart');
+
+Route::middleware(['auth'])->group(function () 
+{
+    Route::get('/cart', [CartController::class, 'showCart'])->name('cart.show');
+    Route::post('/cart/add/{game}', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::post('/cart/remove/{game}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+
+});
+
 
 // Dashboard
 Route::middleware(['auth', 'verified', \App\Http\Middleware\CheckAdmin::class])->get('/dashboard', function () {
@@ -56,8 +64,6 @@ Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product
 Route::get('/searched', [ProductController::class, 'search'])->name('searched');
 
 // Wishlist
-// Route::get('wishlist', function () {
-//     return view('wishlist');})->name('wishlist');
 Route::middleware(['auth'])->group(function () {
     Route::get('/wishlist/filter', [WishlistController::class, 'filter'])->name('wishlist.filter');
     Route::get('/wishlist/search', [WishlistController::class, 'search'])->name('wishlist.search');

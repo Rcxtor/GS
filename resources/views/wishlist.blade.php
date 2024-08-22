@@ -29,7 +29,11 @@
         @endif  
     
         @if($wishlists->isEmpty())
-            <p style="color:white; font-size:2vw; margin-left:2vw; background-color:rgb(27,27,27); padding:1vw;border-radius:1vw; width:25vw;">No games added to Wishlist.</p>
+            <div class="empty-cart">
+            <img src="/sad.png">
+            <h1 class="info-text">You haven't added any game to your wishlist yet.</h1>
+            <a class="discover-button" href="{{route('browse')}}">Shop for Games</a>
+            </div>
         @endif
         @foreach($wishlists as $wishlist)
         <div class="item-container">

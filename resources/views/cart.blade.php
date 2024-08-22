@@ -9,7 +9,11 @@
         <h1>My Cart</h1>  
 
         @if($carts->isEmpty())
-            <p style="color:white; font-size:2vw; margin-left:2vw; background-color:rgb(27,27,27); padding:1vw;border-radius:1vw; width:25vw;">No games added to cart.</p>
+             <div class="empty-cart">
+                <img src="/sad.png">
+                <h1 class="info-text">Your Cart Is Empty.</h1>
+                <a class="discover-button" href="{{route('welcome')}}">Shop for Games</a>
+             </div>
         @endif
         @foreach($carts as $cart)
         <div class="item-container">
@@ -47,5 +51,21 @@
             
         </div> 
         @endforeach
+    </div>
+    <div class="cart-sum">
+        <h1 class="cart-text">Cart Summary</h1>
+        <div class="price-text">
+            <h1>Price</h1>
+            <h2>${{ number_format($total,2)}}</h2>
+        </div>
+        <div class="tax-text">
+            <h1>Taxes</h1>
+            <h2>Calculated at Checkout</h2>
+        </div>
+        <div class="total">
+            <h1>Subtotal</h1>
+            <h2>${{ number_format($total,2)}}</h2>
+        </div>
+        <button class="check-out-button" type="submit">Check Out</button>
     </div>
 </x-app-layout>

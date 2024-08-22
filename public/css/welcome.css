@@ -585,3 +585,30 @@ main
     border-radius: 4px; 
     font-weight: bold; 
 }
+.empty
+{
+    margin-top: 2vw;
+    width: 100%;
+    /* border: 2px solid white; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.empty .main-text,.empty .extra-text
+{
+    font-weight: 100;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.empty .main-text
+{
+    color: white;
+    font-size: 2vw;
+}
+.empty .extra-text
+{
+    text-align: center;
+    color: rgb(127, 127, 127);
+    width: 100%;
+    font-size: 1vw;
+}

@@ -41,3 +41,78 @@
     font-size: 0.75vw;
     margin-top: 0.1vw;
 }
+main
+{
+    position: relative;
+
+}
+.cart-sum
+{
+    position: absolute;
+    width: 13vw;
+    /* border: 2px solid white; */
+    top: 5vw;
+    right: 11vw;
+}
+.cart-text
+{
+    color:white;
+    font-weight: 100;
+    font-size: 1.2vw;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border-bottom: 3px solid white;
+}
+.price-text,.tax-text,.total
+{
+    display: flex;
+    color:white;
+}
+.price-text h1,.tax-text h1,.total h1
+{
+    font-weight: 100;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-top: 1vw;
+    font-size: 0.8vw;
+    
+}
+.price-text h2,.tax-text h2,.total h2
+{
+    margin-left: auto;
+    font-weight: 100;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-top: 1vw;
+    font-size: 0.8vw;
+}
+.tax-text
+{
+    border-bottom: 2px solid rgb(27,27,27);
+    padding-bottom: 1vw;
+}
+.total h1,.total h2
+{
+    font-size: 1.2vw;
+}
+.check-out-button
+{
+    margin-top: 1vw;
+    width: 100%;
+    height: 2.5vw;
+    border: none;
+    border-radius: 6px;
+    background-color: rgb(0,162,232);
+    font-size: 1.2vw;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 400;
+    color: white;
+}
+.check-out-button:hover
+{
+    filter: brightness(0.6);
+    cursor: pointer;
+    border: 2px solid rgb(127,127,127);
+}
+.check-out-button:active
+{
+    transform: scale(0.98);
+}
+

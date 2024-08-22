@@ -33,9 +33,19 @@ class CartController extends Controller
     {
         $userId = Auth::id();
         $carts = Cart::where('user_id', $userId)->with('game')->paginate(8);
+        $total = Cart::where('user_id', $userId)->with('game')->get()->sum(function ($cart) {
+            if ($cart->game->sale_per) 
+            {
+                return $cart->game->price * (1 - $cart->game->sale_per / 100);
+            } 
+            else 
+            {
+                return $cart->game->price;
+            }
+        });
 
 
-        return view('cart', compact('carts'));
+        return view('cart', compact('carts','total'));
     }
     public function removeFromCart($gameId)
     {

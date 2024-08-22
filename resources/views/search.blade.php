@@ -7,7 +7,10 @@
     <div class="new_release">
         <h5>Searched: {{ucfirst($query)}}</h5>
         @if($games->isEmpty())
-            <p style="color:white; font-size:3vw;">No games found.</p>
+            <div class="empty">
+                <h1 class="main-text"> No result found</h1>
+                <h2 class="extra-text">Unfortunately could not find any result matching&nbsp;<span style="text-decoration: underline; color:white;">{{($query) }}</span></h2>    
+            </div>
         @endif
         <div class="container">
             @foreach($games as $game)

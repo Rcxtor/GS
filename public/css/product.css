@@ -260,8 +260,8 @@ main
 }
 .pricebar img
 {
-    height: 90px;
-    width: 260px;
+    height: 5vw;
+    width: 13.5vw;
     object-fit: cover;
     border-radius: 0.2vw;
     margin-bottom: 0.5vw;

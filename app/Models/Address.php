@@ -9,7 +9,7 @@ class Address extends Model
 {
     use HasFactory;
 
-    protected $table = 'shipping_address';
+    protected $table = 'addresses';
 
     protected $fillable = [
         'user_id','address_line','city','state','country',

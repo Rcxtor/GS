@@ -52,4 +52,8 @@ class User extends Authenticatable
             'date_of_birth' => 'date',
         ];
     }
+    public function addresses()
+    {
+        return $this->hasMany(Address::class);
+    }
 }

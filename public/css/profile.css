@@ -1,0 +1,260 @@
+main
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    gap: 1.6vw;
+    padding: 3.1vw 0vw 6.2vw 0vw;
+}
+.sep
+{
+    border: 1px solid rgb(27,27,27);
+    height: 52vw;
+}
+.main-container
+{
+    /* border: 2px solid white; */
+    height: 52vw;
+    width: 49.5vw;
+    background-color: rgb(27,27,27);
+    position: relative;
+}
+.main-container img
+{
+    position: absolute;
+    right:1.6vw;
+    top:1.6vw;
+    height: 175px;
+    width: 175px;
+    border-radius: 50%;
+    border: 2px solid white;
+    object-fit: cover;
+}
+.main-container img:hover
+{
+    filter: brightness(0.8);
+}
+
+.main-heading
+{
+    color: white;
+    font-weight: 100;
+    font-size: 1.4vw;
+    margin-top: 1.6vw;
+    margin-left: 1.6vw;
+
+}
+.main-info
+{
+    margin-top: 0.25vw;
+    margin-left: 1.6vw;
+    color: rgb(127,127,127);
+    font-weight: 100;
+    font-size: 0.75vw;
+    font-weight: 100;
+}
+.account-heading
+{
+    margin-top: 1.5vw;
+    margin-left: 1.6vw;
+    color: white;
+    font-size: 1vw;
+    font-weight: 100;
+}
+.account-info
+{
+    margin-top: 0.25vw;
+    margin-left: 1.6vw;
+    color: rgb(157,157,157);
+    font-size: 0.9vw;
+    font-weight: 100;
+}
+.input-type1
+{
+    margin-top: 1vw;
+    margin-left: 1.6vw;
+    display: flex;
+    gap: 0.2vw;
+}
+.input-type1 input
+{
+    height: 2.5vw;
+    width: 12.4vw;
+    padding-left: 0.55vw;
+    border-radius: 8px;
+    border:none;
+    background-color:rgb(127,127,127);
+    color: white;
+    font-size: 0.8vw;
+    cursor: pointer;
+}
+.input-type1 button
+{
+    height: 2.65vw;
+    width: 2.65vw;
+    background-color: rgb(0,162,232);
+    border: none;
+    border-radius: 10px;
+}
+.input-type1 button:hover
+{
+    filter: brightness(0.8);
+    cursor: pointer;
+}
+.input-type1 button:active
+{
+    transform: scale(0.96);
+}
+.personal-heading
+{
+    margin-top: 2vw;
+    margin-left: 1.6vw;
+    color:white;
+    font-weight: 100;
+    font-size: 1vw;
+}
+.personal-info
+{
+    margin-top: 0.25vw;
+    margin-left: 1.6vw;
+    color: rgb(127,127,127);
+    font-weight: 100;
+    font-size: 0.75vw;
+    font-weight: 100;
+}
+.input-type2
+{
+    margin-top: 1vw;
+    margin-left: 1.6vw;
+    display: flex;
+    gap: 0.2vw;
+}
+.input-type2 input
+{
+    height: 2.5vw;
+    /* width: 12.4vw;2.65 */
+    width: 15vw;
+    padding-left: 0.55vw;
+    border-radius: 8px;
+    border:none;
+    background-color:rgb(127,127,127);
+    color: white;
+    font-size: 0.8vw;
+    cursor: pointer;
+}
+.address-heading
+{
+    margin-top: 2vw;
+    margin-left: 1.6vw;
+    color:white;
+    font-weight: 100;
+    font-size: 1vw;
+}
+.input-type3
+{
+    margin-top: 1vw;
+    margin-left: 1.6vw;
+    height: 2.5vw;
+    width: 32.5vw;
+    padding-left: 0.55vw;
+    border-radius: 8px;
+    border:none;
+    background-color:rgb(127,127,127);
+    color: white;
+    font-size: 0.8vw;
+    cursor: pointer;
+}
+.save-button
+{
+    margin-top: 1.5vw;
+    margin-left: 1.6vw;
+    height: 2.65vw;
+    width: 12vw;
+    background-color: rgb(0,162,232);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 100;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1vw;
+}
+.save-button:hover
+{
+    filter: brightness(0.8);
+    cursor: pointer;
+    border:2px solid rgb(157, 157, 157);
+}
+.save-button:active
+{
+    transform: scale(0.96);
+}
+.delete-heading
+{
+    margin-top: 3vw;
+    margin-left: 1.6vw;
+    color:white;
+    font-weight: 100;
+    font-size: 1vw;
+}
+.delete-info
+{
+    margin-top: 0.25vw;
+    margin-left: 1.6vw;
+    color: rgb(127,127,127);
+    font-weight: 100;
+    font-size: 0.75vw;
+    font-weight: 100;
+}
+.delete-button
+{
+    margin-top: 1.5vw;
+    margin-left: 1.6vw;
+    height: 2.65vw;
+    width: 12vw;
+    background-color: rgb(241,84,91);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 100;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1vw;
+}
+.delete-button:hover
+{
+    filter: brightness(0.8);
+    cursor: pointer;
+    border:2px solid rgb(157, 157, 157);
+}
+.delete-button:active
+{
+    transform: scale(0.96);
+}
+.side-column
+{
+    /* border: 2px solid white; */
+    height: 26.05vw;
+    width: 15.62vw;
+    background-color: rgb(27,27,27);
+    display: flex;
+    flex-direction: column;
+    /* padding-top: 1.6vw; */
+}
+.side-column a
+{
+    /* border: 2px solid white; */
+    color: white;
+    padding: 0.9vw;
+    padding-left: 1.5vw;
+    font-size: 1vw;
+    text-decoration: none;
+}
+.side-column a:hover
+{
+    background-color: rgb(83, 83, 83);
+}
+.side-column a.active
+{   
+    background-color: rgb(127, 127, 127);
+    cursor:default;
+}

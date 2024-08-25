@@ -36,14 +36,14 @@
         <h2 class="main-info">For security, we highly recommend that you choose a strong unique password</h2>
         <h1 class="delete-heading">Current Password</h1>
         <div class="input-type2">
-            <input>
+            <input placeholder="Type Current Password">
         </div>
         <h1 class="personal-heading">New Password</h1>
         <div class="input-type2">
-            <input>
+            <input placeholder="Type New Password">
         </div>
         <div class="input-type2">
-            <input>
+            <input placeholder="Retype New Password">
         </div>
         <button class="save-button">Save Change</button> 
     </div>

@@ -76,6 +76,7 @@ main
     margin-left: 1.6vw;
     display: flex;
     gap: 0.2vw;
+    position: relative;
 }
 .input-type1 input
 {
@@ -129,6 +130,7 @@ main
     margin-left: 1.6vw;
     display: flex;
     gap: 0.2vw;
+    position: relative;
 }
 .input-type2 input
 {
@@ -257,4 +259,17 @@ main
 {   
     background-color: rgb(127, 127, 127);
     cursor:default;
+}
+input::placeholder 
+{
+    color: white;
+    font-size: 0.7vw;
+}
+label
+{
+    position: absolute;
+    top:0.04vw;
+    left:0.5vw;
+    font-size: 0.7vw;
+    color: rgb(197,197,197);
 }

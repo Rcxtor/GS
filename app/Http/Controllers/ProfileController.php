@@ -61,6 +61,19 @@ class ProfileController extends Controller
         // Fill and save the user data
         $user->fill($validatedData);
         $user->save();
+        
+        //address
+        if ($request->has('addresses')) 
+        {
+            foreach ($request->addresses as $addressId => $addressData) 
+            {
+                $address = $user->addresses()->find($addressId);
+                if ($address) 
+                {
+                    $address->update($addressData);
+                }
+            }
+        }
 
         return Redirect::route('profile.edit')->with('success', 'Profile Updated');
     }

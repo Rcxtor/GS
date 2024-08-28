@@ -73,20 +73,33 @@
             </div>  
             <h1 class="address-heading">Address {{$user->address}}</h1> 
             @foreach ($user->addresses as $address)
-                <input placeholder="Address Line" value="{{ old('address_line', $address->address_line ?? 'N/A') }}" class="input-type3">
+                <input name="addresses[{{ $address->id }}][address_line]" 
+                    value="{{ old('addresses.' . $address->id . '.address_line', $address->address_line) }}" 
+                    class="input-type3" 
+                    placeholder="Address Line">
+
                 <div style="display:flex; gap:0.15vw;">
                     <div class="input-type2">
                         <label for="city">City</label>
-                        <input id="city" value="{{ old('city', $address->city ?? 'N/A') }}" placeholder="City">
+                        <input id="city" 
+                            name="addresses[{{ $address->id }}][city]" 
+                            value="{{ old('addresses.' . $address->id . '.city', $address->city) }}" 
+                            placeholder="City">
                     </div>
                     <div class="input-type2">
-                        <label for="state">City</label>
-                        <input id="state" value="{{ old('state', $address->state ?? 'N/A') }}" placeholder="State">
+                        <label for="state">State</label>
+                        <input id="state" 
+                            name="addresses[{{ $address->id }}][state]" 
+                            value="{{ old('addresses.' . $address->id . '.state', $address->state) }}" 
+                            placeholder="State">
                     </div>
                 </div>
                 <div class="input-type2">
-                    <label for="country">City</label>
-                    <input id="country" value="{{ old('country', $address->country ?? 'N/A') }}" placeholder="Country">
+                    <label for="country">Country</label>
+                    <input id="country" 
+                        name="addresses[{{ $address->id }}][country]" 
+                        value="{{ old('addresses.' . $address->id . '.country', $address->country) }}" 
+                        placeholder="Country">
                 </div>
             @endforeach
             <button class="save-button" type="sumbit"> Save Change</button> 

@@ -16,10 +16,26 @@
     <div class="sep"></div>
     
     <div class="main-container">
-        <form method="post" action="{{ route('profile.update') }}">
+        <form method="post" enctype="multipart/form-data" action="{{ route('profile.update') }}">
             @csrf
             @method('patch')
-            <img src="{{ asset('image/test2.png')}}">
+            <!-- <img src="{{ asset('image/test2.png')}}"> -->
+            <!--  -->
+            @if ($user->photo)
+                <img src="{{ asset('storage/' . $user->photo)}}">
+                <!-- <input class="image-add" id="photo" name="photo" type="file"> -->
+            @else
+                <img src="{{ asset('')}}">
+                <!-- <input class="image-add" id="photo" name="photo" type="file"> -->
+            @endif
+            <div  class="image-add" >
+                <input class="image-add-button" id="photo" name="photo" type="file">  
+                <label class="image-add-text" for="photo">Choose File &#8681;</label>
+                <span class="file-name"></span>  
+                <x-input-error class="custom-error" :messages="$errors->get('photo')" />
+            </div>
+            
+            <!--  -->
             <h1 class="main-heading">Account Settings</h1>
             <h2 class="main-info">Manage your account's details.</h2>
             <h1 class="account-heading">Account Information</h1>
@@ -60,14 +76,17 @@
                 <input placeholder="Address Line" value="{{ old('address_line', $address->address_line ?? 'N/A') }}" class="input-type3">
                 <div style="display:flex; gap:0.15vw;">
                     <div class="input-type2">
-                        <input value="{{ old('city', $address->city ?? 'N/A') }}" placeholder="City">
+                        <label for="city">City</label>
+                        <input id="city" value="{{ old('city', $address->city ?? 'N/A') }}" placeholder="City">
                     </div>
                     <div class="input-type2">
-                        <input value="{{ old('state', $address->state ?? 'N/A') }}" placeholder="State">
+                        <label for="state">City</label>
+                        <input id="state" value="{{ old('state', $address->state ?? 'N/A') }}" placeholder="State">
                     </div>
                 </div>
                 <div class="input-type2">
-                    <input value="{{ old('country', $address->country ?? 'N/A') }}" placeholder="Country">
+                    <label for="country">City</label>
+                    <input id="country" value="{{ old('country', $address->country ?? 'N/A') }}" placeholder="Country">
                 </div>
             @endforeach
             <button class="save-button" type="sumbit"> Save Change</button> 
@@ -109,5 +128,9 @@
         document.getElementById("delete-modal").style.display = "none";
         document.getElementById("shadow-overlay").style.display = "none";
     }
+    document.querySelector('input[type="file"]').addEventListener('change', function(e){
+    const fileName = e.target.files[0] ? e.target.files[0].name : 'No file chosen';
+    document.querySelector('.file-name').textContent = fileName;
+});
 </script>
 </x-app-layout>

@@ -60,7 +60,7 @@
                     <div class="link1">
                         @auth
                             @if(auth()->user()->role=='admin')
-                                <x-nav-link href="{{route('dashboard')}}" :active="request()->routeIs('dashboard')">
+                                <x-nav-link href="{{route('dashboard')}}" :active="request()->routeIs('dashboard') || request()->routeIs('addProduct')">
                                     Dashboard
                                 </x-nav-link>
                             @endif

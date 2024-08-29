@@ -12,6 +12,11 @@ use App\Http\Controllers\WishlistController;
 
 use Illuminate\Support\Facades\Route;
 
+// Add product
+Route::middleware(['auth', 'verified', \App\Http\Middleware\CheckAdmin::class])->get('/add-product', function () {
+    return view('dashboard.add');
+})->name('addProduct');
+
 // Browse
 Route::get('/browse', [BrowseController::class, 'show'])->name('browse');
 Route::get('/browse', [BrowseController::class, 'filter'])->name('browse');

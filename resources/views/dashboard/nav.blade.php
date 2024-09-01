@@ -21,7 +21,7 @@
         Customers
     </x-nav-link>
     <x-nav-link href="" :active="request()->routeIs('')">
-        Password & Security
+        Invoice
     </x-nav-link>
     <x-nav-link href="" :active="request()->routeIs('')">
         Password & Security

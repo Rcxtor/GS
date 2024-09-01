@@ -9,6 +9,7 @@ use App\Http\Controllers\BrowseController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\SearchedController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\DashboardController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth', 'verified', \App\Http\Middleware\CheckAdmin::class])->get('/add-product', function () {
     return view('dashboard.add');
 })->name('addProduct');
-
+Route::post('/dashboard/add-product', [DashboardController::class, 'addProduct'])->name('dashboard.add-product');
 // Browse
 Route::get('/browse', [BrowseController::class, 'show'])->name('browse');
 Route::get('/browse', [BrowseController::class, 'filter'])->name('browse');

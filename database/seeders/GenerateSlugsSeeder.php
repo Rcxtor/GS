@@ -15,7 +15,7 @@ class GenerateSlugsSeeder extends Seeder
 
         // Iterate through each game and update the slug
         foreach ($games as $game) {
-            $game->slug = Str::slug($game->title);
+            $game->slug = Str::slug($game->title). '-' . $game->id;
             $game->save();
         }
     }
